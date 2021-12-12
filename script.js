@@ -42,6 +42,6 @@ const putRock = (el) => {
 
    if(rocks.length === 0) {
      cartas_restantes.style.color = 'forestgreen';
-     cartas_restantes.innerHTML = '¡¡BUUUUEEENAAAASSSS!!'
+     cartas_restantes.innerHTML = '¡¡Loteria!!'
    }
 }

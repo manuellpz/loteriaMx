@@ -32,8 +32,9 @@ h1 {
 .rock {
     height: 20px;
     width: 20px;
+    border:2px solid white;
     border-radius: 50%;
-    background: forestgreen;
+    background: black;
 }
 
 #cartas_restantes {
