@@ -22,6 +22,12 @@ const generateRandomCard = () => {
     })
 }
 
+const reset = () => {
+    cartas_restantes.style.color = 'white'
+    cartas_restantes.innerHTML = 'Cartas Restantes: 16'
+    document.querySelectorAll('.items_loteria > div').forEach(item => item.classList.add('rock'))
+}
+
 // btnGenerate.addEventListener('click',generateRandomCard())
 
 
@@ -41,7 +47,8 @@ const putRock = (el) => {
    cartas_restantes.innerHTML = `Cartas Restantes: ${rocks.length}`;
 
    if(rocks.length === 0) {
-     cartas_restantes.style.color = 'forestgreen';
+     cartas_restantes.style.color = 'lime';
      cartas_restantes.innerHTML = '¡¡Loteria!!'
+     setTimeout(reset,5000)
    }
 }
