@@ -1,16 +1,35 @@
 const items_loteria = document.querySelectorAll('.items_loteria');
 let cartas_restantes = document.querySelector('#cartas_restantes');
+const btnGenerate = document.querySelector('#btnGenerate');
 let randomNumber = Math.floor((Math.random()*54)+1);
-let cards = [randomNumber];
+let cards = [17,32,8,31,46,16,6,9,52,18,19,15,7,44,43,27];
 
-//Generamos un arreglo con numeros random que representan a las 54 cartas
-for(let i=0;i<15;i++){
-    randomNumber = Math.floor((Math.random()*54)+1);
-    while(cards.includes(randomNumber)){
+const generateRandomCard = () => {
+    //Generamos un arreglo con numeros random que representan a las 54 cartas
+    cards = [randomNumber]
+
+    for(let i=0;i<15;i++){
         randomNumber = Math.floor((Math.random()*54)+1);
+        while(cards.includes(randomNumber)){
+            randomNumber = Math.floor((Math.random()*54)+1);
+        }
+        cards.push(randomNumber);
     }
-    cards.push(randomNumber);
+        items_loteria.forEach((item,index)=>{
+        let card_number = cards[index];
+        item.style.background = `url('img/Carta (${card_number}).jpg')`;
+        item.style.backgroundSize='cover';
+    })
 }
+
+const reset = () => {
+    cartas_restantes.style.color = 'white'
+    cartas_restantes.innerHTML = 'Cartas Restantes: 16'
+    document.querySelectorAll('.items_loteria > div').forEach(item => item.classList.add('rock'))
+}
+
+// btnGenerate.addEventListener('click',generateRandomCard())
+
 
 //Generamos las cartas random de acuerdo con el arreglo que generamos con anterioridad
 items_loteria.forEach((item,index)=>{
@@ -28,7 +47,8 @@ const putRock = (el) => {
    cartas_restantes.innerHTML = `Cartas Restantes: ${rocks.length}`;
 
    if(rocks.length === 0) {
-     cartas_restantes.style.color = 'forestgreen';
-     cartas_restantes.innerHTML = '¡¡BUUUUEEENAAAASSSS!!'
+     cartas_restantes.style.color = 'lime';
+     cartas_restantes.innerHTML = '¡¡Loteria!!'
+     setTimeout(reset,5000)
    }
 }

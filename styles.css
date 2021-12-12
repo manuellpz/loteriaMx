@@ -1,9 +1,10 @@
 body{
-    background:khaki;
+    background:rgb(3, 32, 56);
 }
-h1 {
+h1, #cartas_restantes {
     text-align: center;
     font-family:'Jetbrains Mono';
+    color:white;
 }
 
 .container_loteria {
@@ -32,11 +33,19 @@ h1 {
 .rock {
     height: 20px;
     width: 20px;
+    border:2px solid white;
     border-radius: 50%;
-    background: forestgreen;
+    background: black;
 }
 
-#cartas_restantes {
-    text-align: center;
-    font-family: 'Jetbrains Mono';
+#btnGenerate {
+    display: block;
+    margin: auto;
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid silver;
 }
